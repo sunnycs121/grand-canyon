@@ -1,66 +1,45 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CRUD Assessment for GCE
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+NOTE: In assessment description DB table name was said to be `users` but Laravel by default comes with a `users` table which have some extra fields not part of this assessment so I just created a new DB table by the name of `gce_users`.
 
-## About Laravel
+# Technologies Used
+1. <a href="https://laravel.com/">Laravel PHP framework version 10 (latest)</a>
+2. <a href="https://laravel.com/docs/10.x/starter-kits#laravel-breeze">Laravel Breeze</a>
+    1. Laravel Breeze is a minimal, simple implementation of all of Laravel's authentication features, including login, registration, password reset, email verification, and password confirmation. In addition, Breeze includes a simple "profile" page where the user may update their name, email address, and password.
+3. <a href="https://inertiajs.com/">InertiaJS</a>
+    1. Inertia allows you to create fully client-side rendered, single-page apps, without the complexity that comes with modern SPAs. It does this by leveraging existing server-side patterns that you already love.
+4. Frontend in <a href="https://vuejs.org/">Vue JS</a>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Steps to Test
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clone repository
+2. cd into to directory `/grand-canyon`
+3. Run migrations `php artisan migrate`
+    - This will create laravel default DB changes and new custom table `gce_users`
+4. Run application by `php artisan serve`
+5. Go to the url at which application is being served, we will call it for now [BASE_URL], go to http://[BASE_URL]
+    1. you should see Laravel welcome page with links to Login or Register on top right as shown below
+    
+    2. <img width="1727" alt="Screenshot at Feb 21 22-19-47" src="https://user-images.githubusercontent.com/2493730/220512910-865c58df-8b54-4a3a-a22d-2d13f7aacfbb.png">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+6. Create a new account by clicking on register
+    1. <img width="591" alt="Screenshot at Feb 21 22-22-02" src="https://user-images.githubusercontent.com/2493730/220513191-b863085a-e511-4448-ac95-fbb37a7d0ff5.png">
 
-## Learning Laravel
+7. ## List of Users
+    1. System should take you to page [BASE_URL]/dashboard where users will be displayed in a table format
+    2. <img width="1407" alt="Screenshot at Feb 21 22-23-37" src="https://user-images.githubusercontent.com/2493730/220513368-915ed201-87bc-42e2-b84f-4c768f5aa53c.png">
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+9. ## Create new user
+    1. To create a new user, click on button `Create New GCE User`
+    2. <img width="1476" alt="image" src="https://user-images.githubusercontent.com/2493730/220513656-99d7d2cf-dd0c-460a-b5e5-949c0653ccc9.png">
+    3. Create user form displayed below with employee_id validation error displayed
+    4. <img width="1489" alt="image" src="https://user-images.githubusercontent.com/2493730/220513855-d429254e-4841-4f68-9bda-36d85bfe0f24.png">
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+10. After creating new user, system will take you back to dashboard page
+11. ## Edit User
+    1. To edit any user, click on corresponding `Edit` link for that user
+    2. <img width="1455" alt="image" src="https://user-images.githubusercontent.com/2493730/220513967-e101e48d-c68c-45a5-8d88-4618d370c9d1.png">
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+12. ## Delete User
+    1. To delete a user, click on corresponding delete button
+    2. <img width="1319" alt="image" src="https://user-images.githubusercontent.com/2493730/220514186-083b922a-bbee-45fb-98c0-9fc8c6703772.png">
